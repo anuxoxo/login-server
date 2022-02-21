@@ -53,7 +53,6 @@ module.exports.login_post = (req, res) => {
                 message: err.message,
             });
         }
-
         if (!user) res.status(400).json({
             success: false,
             error: "User Doesn't Exist"
@@ -81,3 +80,7 @@ module.exports.login_post = (req, res) => {
     })
 }
 
+module.exports.logout = (req, res) => {
+    res.clearCookie('access-token');
+    res.json({ success: true, message: "Successfully Logged out" });
+}

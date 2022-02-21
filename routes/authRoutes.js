@@ -8,5 +8,6 @@ router.route("/register")
 
 router.get("/login", validateToken, authController.login_get);
 router.post("/login", authController.login_post);
+router.get("/logout", authController.logout);
 
 module.exports = router;
